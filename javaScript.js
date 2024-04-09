@@ -108,9 +108,9 @@ const res = () => {
     }
   }
 
-  if (numbers.length >= 2 && symbols.length >= 1) {
     val[0] === "-" && symbols.shift();
     let result = Number(numbers[0]);
+  if (numbers.length >= 2 && symbols.length >= 1) {
     for (let i = 0; i < symbols.length; i++) {
       result = operations[symbols[i]](result, Number(numbers[i + 1]));
     }
