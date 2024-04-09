@@ -86,7 +86,7 @@ const res = () => {
 
   const check = symbols.includes("/");
 
-  let s = [];
+  
   let n = [];
   const pir = ["/", "*"];
   if (val.length > 4 && !(symbols[0] === "/" && val.length === 5)) {
@@ -108,16 +108,16 @@ const res = () => {
     }
   }
 
-  val[0] === "-" && symbols.shift();
-  let result = Number(numbers[0]);
+    val[0] === "-" && symbols.shift();
+    let result = Number(numbers[0]);
   if (numbers.length >= 2 && symbols.length >= 1) {
     for (let i = 0; i < symbols.length; i++) {
       result = operations[symbols[i]](result, Number(numbers[i + 1]));
     }
   }
-  input.value = check ? result.toFixed(4) : result.toFixed(2);
-  numbers = [check ? result.toFixed(4) : result.toFixed(2)];
-  symbols = [];
+    input.value = check ? result.toFixed(4) : result.toFixed(2);
+    numbers = [check ? result.toFixed(4) : result.toFixed(2)];
+    symbols = [];
 };
 
 // key press event
