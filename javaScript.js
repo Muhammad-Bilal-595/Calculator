@@ -23,7 +23,7 @@ const keypress = (k, event = undefined) => {
     (input.value[input.selectionStart - 1]?.match(preVal) &&
       key.match(preVal)) ||
     (input.value.length > 2 &&
-      numbers?.length > 1 &&
+      numbers?.length > 0 &&
       numbers[numbers?.length - 1]?.slice("").includes(".") &&
       key === ".")
   ) {
@@ -108,16 +108,16 @@ const res = () => {
     }
   }
 
+  val[0] === "-" && symbols.shift();
+  let result = Number(numbers[0]);
   if (numbers.length >= 2 && symbols.length >= 1) {
-    val[0] === "-" && symbols.shift();
-    let result = Number(numbers[0]);
     for (let i = 0; i < symbols.length; i++) {
       result = operations[symbols[i]](result, Number(numbers[i + 1]));
     }
-    input.value = check ? result.toFixed(4) : result.toFixed(2);
-    numbers = [check ? result.toFixed(4) : result.toFixed(2)];
-    symbols = [];
   }
+  input.value = check ? result.toFixed(4) : result.toFixed(2);
+  numbers = [check ? result.toFixed(4) : result.toFixed(2)];
+  symbols = [];
 };
 
 // key press event
