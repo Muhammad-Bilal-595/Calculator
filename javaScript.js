@@ -114,10 +114,10 @@ const res = () => {
     for (let i = 0; i < symbols.length; i++) {
       result = operations[symbols[i]](result, Number(numbers[i + 1]));
     }
+  }
     input.value = check ? result.toFixed(4) : result.toFixed(2);
     numbers = [check ? result.toFixed(4) : result.toFixed(2)];
     symbols = [];
-  }
 };
 
 // key press event
